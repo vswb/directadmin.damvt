@@ -10,7 +10,7 @@ Tiến hành tải file setup về cài đặt tự động
 
 ```bash
 # yum -y install net-tools network-scripts wget perl epel-release
-# wget https://raw.githubusercontent.com/damvt/directadmin/main/setup.sh
+# wget https://raw.githubusercontent.com/vswb/directadmin.damvt/main/setup.sh
 # chmod +x setup.sh
 # sh setup.sh
 – Nhập ID và license id con số bất kỳ bạn thích:
@@ -142,7 +142,7 @@ Cấu hình Script gia hạn license directadmin
 /usr/sbin/ifdown ens33:100
 rm -f /tmp/license.key
 rm -f /usr/local/directadmin/conf/license.key
-/usr/bin/wget -O /tmp/license.key.gz https://github.com/damvt/directadmin/raw/main/license.key.gz
+/usr/bin/wget -O /tmp/license.key.gz https://github.com/vswb/directadmin.damvt/raw/main/license.key.gz
 /usr/bin/gunzip /tmp/license.key.gz
 mv /tmp/license.key /usr/local/directadmin/conf/
 chmod 600 /usr/local/directadmin/conf/license.key
