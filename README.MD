@@ -19,30 +19,51 @@ Tiến hành tải file setup về cài đặt tự động
 + Đây là mẫu thông tin mình điền với Centos 6 và 7:
 
 Would you like to install these required pre-install packages? (y/n): y
+
 Please enter your Client ID : 12345
+
 Please enter your License ID : 54321
+
 Enter your hostname (FQDN) : server.system.info.vn
+
 Is this correct? (y,n) : y
+
 Is ens33 your network adaptor with the license IP (10.10.10.5)? (y,n) :y
+
 Is 10.10.10.5 the IP in your license? (y,n) : y
+
 Is this correct? (must match license) (y,n) : y
+
 Would you like the default settings of apache 2.4 with mod_ruid2 and php 7.4 cli? (y/n): y
+
 Would you like to search for the fastest download mirror? (y/n): y
+
 + Đây là mẫu thông tin mình điền với Centos 8:
 
-
 Enter your hostname (FQDN) :
+
 Client ID: 12345
+
 License ID: 54321
+
 Hostname: server.system.info.vn
+
 Is this correct? (y,n) : y
+
 Is ens33 your network adaptor with the license IP (10.10.10.5)? (y,n) : y
+
 Your external IP: xxx.xxx.xxx.xxx
+
 The external IP should typically match your license IP.
+
 Is 10.10.10.5 the IP in your license? (y,n) : y
+
 DirectAdmin will now be installed on: Enterprise 8.3
+
 Is this correct? (must match license) (y,n) : y
+
 Select your desired apache/php setup. Option 1 is recommended.
+
 You can make changes from the default settings in the next step.
 
 ```code
@@ -169,9 +190,6 @@ directadmin1 1 1
 ```
 
 Màn hình đăng nhập Directadmin Nulled
-
 cai dat directadmin nulled thanh cong
-
 Cài đặt thành công directadmin nulled
-
 Như vậy ta đã cài đặt thành công directadmin nulled cho centos 6,7,8
