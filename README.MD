@@ -8,13 +8,13 @@ Tiến hành tải file setup về cài đặt tự động
 
 – Tiến hành cài đặt các package và tải script cài đặt tự động
 
-`shell
+```bash
 # yum -y install net-tools network-scripts wget perl epel-release
 # wget https://raw.githubusercontent.com/damvt/directadmin/main/setup.sh
 # chmod +x setup.sh
 # sh setup.sh
 – Nhập ID và license id con số bất kỳ bạn thích:
-`
+```
 
 + Đây là mẫu thông tin mình điền với Centos 6 và 7:
 
@@ -59,14 +59,14 @@ If you cannot connect to the login URL, then it is likely that a firewall is blo
 https://help.directadmin.com/item.php?id=75
 – Lưu ý cần Mở port firewall
 
-`shell
+```bash
 # firewall-cmd --zone=public --add-port=2222/tcp --permanent
 # firewall-cmd --zone=public --add-port=21/tcp --permanent
 # firewall-cmd --zone=public --add-port=80/tcp --permanent
 # firewall-cmd --zone=public --add-port=25/tcp --permanent
 # firewall-cmd --reload
 # systemctl restart directadmin
-`
+```
 
 Cấu hình card mạng
 
@@ -75,68 +75,68 @@ Lưu ý : Đối với các card mạng khác ens33 (ens18,eth0,…) cấu hình
 card mang directamin nulled centOs
 VD: Card mạng “ens33” mình add thêm subinterface ens33:100 để gia hạng license directadmin.
 
-`shell
+```bash
 # vi /etc/sysconfig/network-scripts/ifcfg-ens33:100
 DEVICE=ens33:100
 IPADDR=176.99.3.34
 NETMASK=255.255.255.0
-`
+```
 
 – Thay đổi card mạng gia hạng license directadmin trong directadmin.conf
 
-`shell
+```bash
 # /usr/bin/perl -pi -e 's/^ethernet_dev=.*/ethernet_dev=ens33:100/' /usr/local/directadmin/conf/directadmin.conf
-`
+```
 
 – Tiến hành Up card mạng ens33:100
 
-`shell
+```bash
 ifup ens33:100
 ifup card mang directamin nulled
-`
+```
 
 Nếu bạn không ifup được card license directadmin cần tắt arp ping để Up được card mạng này:
 
-`shell
+```bash
 # vi /etc/sysconfig/network-scripts/ifup-eth
-`
+```
 
 – Tìm dòng sau
 
 Với Eth0:
 
-`shell
+```bash
 ...
 if [ $? = 1 ]; then
 ARPINGMAC=$(echo $ARPING | sed -ne 's/.*\[\(.*\)\].*/\1/p')
 net_log $"Error, some other host ($ARPINGMAC) already uses address ${ipaddr[$idx]}."
 exit 1
 ...
-`
+```
 
 Với Ens18
 
-`shell
+```bash
 ...
 if [ "${REALDEVICE}" != "lo" ] && [ "${arpcheck[$idx]}" != "no" ] ; then
 /sbin/arping -q -c 2 -w 3 -D -I ${REALDEVICE} ${ipaddr[$idx]}
 if [ $? = 1 ]; then
 net_log $"Error, some other host already uses address ${ipaddr[$idx]}."
 exit 1
-`
+```
 
 ...
 Thường là dòng (279 đối với “eth0” và 257 đối với “ens18” ) “exit 1” Rem lại “# exit 1”. Rồi save lại.
 
 Cấu hình Script gia hạn license directadmin
 
-`shell
+```bash
 # vi /usr/local/directadmin/scripts/update-license.sh
-`
+```
 
 Điền thông tin scipt vào:
 
-`shell
+```bash
 #/bin/bash
 # --- Điền lại tên subinterface gia hạng license nhé! --- #
 /usr/sbin/ifdown ens33:100
@@ -162,7 +162,7 @@ crontab -e
 
 cat /usr/local/directadmin/scripts/setup.txt
 directadmin1 1 1
-`
+```
 
 Màn hình đăng nhập Directadmin Nulled
 cai dat directadmin nulled thanh cong
