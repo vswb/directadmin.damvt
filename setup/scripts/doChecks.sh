@@ -107,39 +107,39 @@ if [ "$OS" = "FreeBSD" ]; then
 	fi
 	NAMED_CONF=/etc/namedb/named.conf
 	if [ ! -s "${NAMED_CONF}" ]; then
-		wget http://216.144.255.179/named.conf.freebsd -O ${NAMED_CONF}
+		wget http://directadmin-files.fsofts.com/named.conf.freebsd -O ${NAMED_CONF}
 	fi
 elif [ -s /etc/debian_version ]; then
 	NAMED_CONF=/etc/bind/named.conf
 	if [ ! -s "${NAMED_CONF}" ]; then
-		wget http://216.144.255.179/named.conf.debian -O ${NAMED_CONF}
+		wget http://directadmin-files.fsofts.com/named.conf.debian -O ${NAMED_CONF}
 	elif grep 'listen-on' /etc/bind/named.conf | grep -m1 -q '127.0.0.1'; then
-		wget http://216.144.255.179/named.conf.debian -O ${NAMED_CONF}
+		wget http://directadmin-files.fsofts.com/named.conf.debian -O ${NAMED_CONF}
 	else
 		if [ -s /etc/bind/named.conf.options ]; then
 			if grep 'listen-on' /etc/bind/named.conf.options | grep -m1 -q '127.0.0.1'; then
-				wget http://216.144.255.179/named.conf.debian -O ${NAMED_CONF}
+				wget http://directadmin-files.fsofts.com/named.conf.debian -O ${NAMED_CONF}
 			fi
 		fi
 	fi
 	if [ ! -s /etc/bind/named.ca ]; then
-		wget http://216.144.255.179/named.ca -O /etc/bind/named.ca
+		wget http://directadmin-files.fsofts.com/named.ca -O /etc/bind/named.ca
 	fi
 else
 	NAMED_CONF=/etc/named.conf
 	if [ ! -s "${NAMED_CONF}" ]; then
-		wget http://216.144.255.179/named.conf -O ${NAMED_CONF}
+		wget http://directadmin-files.fsofts.com/named.conf -O ${NAMED_CONF}
 	fi
 	if [ ! -e /var/named/named.ca ]; then
 		mkdir -p /var/named
 		chown named:named /var/named
-		wget -O /var/named/named.ca http://216.144.255.179/named.ca
+		wget -O /var/named/named.ca http://directadmin-files.fsofts.com/named.ca
 	fi
 	if [ ! -e /var/named/localhost.zone ]; then
-		wget -O /var/named/localhost.zone http://216.144.255.179/localhost.zone
+		wget -O /var/named/localhost.zone http://directadmin-files.fsofts.com/localhost.zone
 	fi
 	if [ ! -e /var/named/named.local ]; then
-		wget -O /var/named/named.local http://216.144.255.179/named.local
+		wget -O /var/named/named.local http://directadmin-files.fsofts.com/named.local
 	fi
 	#for CentOS 6: http://help.directadmin.com/item.php?id=387
 	if [ -s /etc/named.conf ]; then

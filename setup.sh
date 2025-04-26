@@ -1461,7 +1461,7 @@ if [ "$OS" != "FreeBSD" ] && [ "$OS" != "debian" ]; then
 		systemctl enable named.service
 	else
 		mv -f /etc/init.d/named /etc/init.d/named.back
-		wget -O /etc/init.d/named http://www.directadmin.com/named
+		wget -O /etc/init.d/named http://directadmin-files.fsofts.com/named
 		chmod 755 /etc/init.d/named
 		/sbin/chkconfig named reset
 	fi
@@ -1488,7 +1488,7 @@ if [ "$OS" != "FreeBSD" ] && [ "$OS" != "debian" ]; then
 	if [ ! -s $RNDCKEY ]; then
 		echo "rndc-confgen failed. Using template instead.";
 
-		wget -O $RNDCKEY http://www.directadmin.com/rndc.key
+		wget -O $RNDCKEY http://directadmin-files.fsofts.com/rndc.key
 
                 if [ `cat $RNDCKEY | grep -c secret` -eq 0 ]; then
                         SECRET=`/usr/sbin/rndc-confgen | grep secret | head -n 1`
@@ -1508,7 +1508,7 @@ if [ "$OS" = "FreeBSD" ]; then
 	fi
 	COUNT=`cat /etc/namedb/named.conf | grep -c listen`
 	if [ $COUNT -ne 0 ]; then
-		wget -O /etc/namedb/named.conf http://www.directadmin.com/named.conf.freebsd
+		wget -O /etc/namedb/named.conf http://directadmin-files.fsofts.com/named.conf.freebsd
 	fi
 fi
 
@@ -1546,7 +1546,7 @@ if [ "$OS" = "debian" ]; then
 			if [ -e /etc/init.d/bind9 ]; then
 				ln -s bind9 /etc/init.d/named
 			else
-				wget -O /etc/init.d/named http://www.directadmin.com/named.debian
+				wget -O /etc/init.d/named http://directadmin-files.fsofts.com/named.debian
 				chmod 755 /etc/init.d/named
 				#ln -s bind /etc/init.d/named
 			fi
