@@ -44,12 +44,16 @@ DirectAdmin will now be installed on: Enterprise 8.3
 Is this correct? (must match license) (y,n) : y
 Select your desired apache/php setup. Option 1 is recommended.
 You can make changes from the default settings in the next step.
+
+```code
 1: Apache 2.4, mod_ruid2, php 7.4. Can be set to use mod_php, php-FPM or fastcgi.
 2: Apache 2.4, mod_ruid2, php 5.6 (php 5.6 is end-of-life)
 3: Apache 2.4, mod_ruid2, php 5.6 (php 5.6 is end-of-life), MariaDB 5.5
 4: Apache 2.4, php-fpm, php 7.4.
    Lưu ý: mod_ruid2 không hỗ trợ Centos 8 
 Post any issues with custombuild to the forum: http://forum.directadmin.com/forumdisplay.php?f=61
+```
+
 Enter your choice (1, 2, 3 or 4): 4
 – Cài đặt thành công sẽ hiện lên thông báo:
 
@@ -165,6 +169,9 @@ directadmin1 1 1
 ```
 
 Màn hình đăng nhập Directadmin Nulled
+
 cai dat directadmin nulled thanh cong
+
 Cài đặt thành công directadmin nulled
+
 Như vậy ta đã cài đặt thành công directadmin nulled cho centos 6,7,8
