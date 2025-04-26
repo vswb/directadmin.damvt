@@ -1,0 +1,20 @@
+|*if TYPE="external"|
+{
+	"match": {
+		"uri": [ "/|URI|/*", "/|URI|" ]
+	},
+	"action": {
+		"pass": "applications/|DOMAIN|_|NAME|"
+	}
+}
+|*endif|
+|*if TYPE="php"|
+{
+	"match": {
+		"uri": [ "*.php", "*/" ]
+	},
+	"action": {
+		"pass": "applications/|DOMAIN|_|NAME|",
+	}
+}
+|*endif|

@@ -1,0 +1,52 @@
+{
+	"type": "|TYPE|",
+	"user": "|USER|",
+	"group": "|GROUP|",
+	|*if TYPE="external"|
+	"working_directory": "|WORKING_DIRECTORY|",
+	"executable": "|EXECUTABLE|",
+	"arguments":
+|ARGUMENTS|,
+	"environment":
+|ENVIRONMENT|,
+	|*endif|
+	|*if TYPE="java"|
+	"classpath": ["/www/qwk2mart/lib/qwk2mart-2.0.0.jar"],
+	"options": ["-Dlog_path=/var/log/qwk2mart.log"],
+	"webapp": "/www/qwk2mart/qwk2mart.war",
+	|*endif|
+	|*if TYPE="php"|
+	"root": "|HOME|/domains/|DOMAIN|/my_first_php_page",
+	"options": {
+	|exists(/usr/local/directadmin/data/users/|USER|/php/|DOMAIN|.ini)|
+		"file": "/usr/local/directadmin/data/users/|USER|/php/|DOMAIN|.ini",
+	|endif|
+		"admin": {
+			"open_basedir": "|OPEN_BASEDIR_PATH|",
+			"sendmail_path": "/usr/sbin/sendmail -t -i -f |PHP_EMAIL|",
+			"mail.log": "|PHP_MAIL_LOG_DIR|/php-mail.log"
+		},
+		"user": {
+			"display_errors": "0"
+		}
+	},
+	|*endif|
+	|*if TYPE="perl"|
+	"script": "/www/bugtracker/app.psgi",
+	"working_directory": "/www/bugtracker",
+	|*endif|
+	|*if TYPE="python"|
+	"working_directory": "/www/store/",
+	"path": "/www/store/cart/",
+	"home": "/www/store/.virtualenv/",
+	"module": "wsgi",
+	|*endif|
+	|*if TYPE="ruby"|
+	"script": "/www/cms/config.ru",
+	|*endif|
+	"limits": {
+		"timeout": |TIMEOUT|,
+		"requests": |REQUESTS|
+	},
+	"processes": |PROCESSES|
+}

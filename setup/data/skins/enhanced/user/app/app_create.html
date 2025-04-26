@@ -1,0 +1,54 @@
+|LF_STANDARD|
+|LF_DB|
+|?TREE=&raquo; <a class=tree href="/CMD_SHOW_DOMAIN?domain=`DOMAIN`">`DOMAIN`</a> &raquo; <a class=tree href="/CMD_UNIT?DOMAIN=`DOMAIN`">Applications</a> &raquo; <a class=tree href="/CMD_UNIT?domain=`DOMAIN`&action=create">Create Application</a>|
+|?HELP_SECTION=`USER_HELPER`/applications.html#create|
+|HTM_USER_TOP|
+
+<script language="javascript">
+
+|HTM_JAVASCRIPT|
+</script>
+
+<table class=list cellpadding=3 cellspacing=1>
+	<form name=info action="/CMD_UNIT" method="POST">
+		<input type="hidden" name="action" value="|action|">
+		<input type="hidden" name="domain" value="|DOMAIN|">
+
+		<tr><td class=listtitle colspan=3>Create Application</td></tr>
+
+	<tr><td class=list>URI</td><td class=list>|DOMAIN|/<input type="text" name="uri" size="20"></td></tr>
+	<tr><td class=listtitle colspan=2>New App</td></tr>
+	<tr><td class=list>Name</td><td class=list>
+			|*if action="modify"|
+				<input type="hidden" name="name" value="|NAME|">
+				|NAME|
+			|*else|
+				<input type="text" name="name" value="|NAME|" placeholder='appname'>
+			|*endif|
+			</td></tr>
+
+		<tr><td class=list>Type:</td><td class=list colspan=2>|TYPE_SELECT|</td></tr>
+	<tr><td class=list>Processes</td><td class=list><input type=text name=processes placeholder="1-10" value="|PROCESSES|"></td></tr>
+	<tr><td class=list>Working Directory</td><td class=list><input size=40 type=text name="working_directory" value="|WORKING_DIRECTORY|"></td></tr>
+      <!--Next line is for Python only-->
+        <tr><td class=list>Application Entry point</td><td class=list><input type="text" name="entry" size="20" style="background-color: rgb(255, 214, 214);"></td></tr>
+
+        <tr><td class=list>Executable</td><td class=list><input type="text" name="executable" size="20" value="|EXECUTABLE|" placeholder='app or ~/working_dir/app'></td></tr>
+        <tr><td class=list>Timeout</td><td class=list><input type="text" name="timeout" size="20" placeholder="10" value="|TIMEOUT|"></td></tr>
+        <tr><td class=list>Max requests</td><td class=list><input type="text" name="requests" size="20" placeholder="1000" value="|REQUESTS|"></td></tr>
+
+	<tr><td class=list>Environment variables</td><td class=list><textarea cols="40" rows="5" name="environment" placeholder="NODE_ENV=production
+OTHER_VAL=test">|ENVIRONMENT|</textarea></td></tr>
+
+        <!--Next line is for type=external only-->
+	<tr><td class=list>Arguments</td><td class=list><input type="text" name="arguments" value="|ARGUMENTS|" placeholder="--tmp-dir=/tmp/cache"></td></tr>
+
+
+		<tr><td class=list>Serve static content</td><td class=list><input type="checkbox" name=static value="ON" checked></td></tr>
+		<tr><td class=listtitle colspan=3 align=right>
+			<input type=submit name=create value="|*if action="modify"|Modify|*else|Create|*endif|">
+		</td></tr>
+	</form>
+</table>
+
+|HTM_USER_BOTTOM|
