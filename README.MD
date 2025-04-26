@@ -3,7 +3,10 @@ Hướng dẫn cài đặt Directadmin Nulled version 1.62.x
 – Chào các bạn hôm nay mình xin hướng đẫn các bạn cài đặt Directadmin Nulled cho Centos 6,7,8 version 1.62.x
 
 Directadmin Nulled và Directadmin bản quyền khác nhau rất nhiều.
-Directadmin Nulled chứa rất nhiều nguy cơ và không ổn định. Mình khuyên đối với các bạn làm doanh nghiệp cần sử dụng ổn định thì không nên sử dụng. Còn nếu chia ra để nhiều người quen cùng dùng chung ( ví dụ như bạn và 1 vài người khác góp tiền mua VPS, sau đó muốn tách vps thành nhiều shared hosting ) thì có lẽ đây là sự lựa chọn rất khả quan.
+
+Directadmin Nulled chứa rất nhiều nguy cơ và không ổn định. Mình khuyên đối với các bạn làm doanh nghiệp cần sử dụng ổn định thì không nên sử dụng. 
+Còn nếu chia ra để nhiều người quen cùng dùng chung ( ví dụ như bạn và 1 vài người khác góp tiền mua VPS, sau đó muốn tách vps thành nhiều shared hosting ) thì có lẽ đây là sự lựa chọn rất khả quan.
+
 Tiến hành tải file setup về cài đặt tự động
 
 – Tiến hành cài đặt các package và tải script cài đặt tự động
@@ -190,6 +193,9 @@ directadmin1 1 1
 ```
 
 Màn hình đăng nhập Directadmin Nulled
+
 cai dat directadmin nulled thanh cong
+
 Cài đặt thành công directadmin nulled
+
 Như vậy ta đã cài đặt thành công directadmin nulled cho centos 6,7,8
